@@ -1,39 +1,39 @@
 README
 ======
 
-Obsidan Note Timer (adaptação)
--------------------------------
+Obsidian Note Timer (Adaptation)
+---------------------------------
 
-Este projeto é uma adaptação local do plugin "obsidian-note-timer" de davidvdev.
-Base original: https://github.com/davidvdev/obsidian-note-timer
+This project is a local adaptation of the "obsidian-note-timer" plugin by davidvdev.
+Original source: https://github.com/davidvdev/obsidian-note-timer
 
-Resumo
-------
+Overview
+--------
 
-O plugin adiciona um timer embutido em blocos de código Markdown com a linguagem `timer`.
-Ele exibe botões para iniciar, parar e (opcionalmente) resetar o tempo, e pode manter um log
-em formato de tabela dentro do próprio arquivo Markdown.
+This plugin adds an embedded timer to Markdown code blocks using the `timer` language.
+It displays buttons to start, stop, and (optionally) reset the timer, and can maintain a log
+in table format within the Markdown file itself.
 
-Arquivos principais
--------------------
+Main Files
+----------
 
-- `main.js` — arquivo gerado/bundled com a lógica do plugin (processador do bloco de código `timer`, persistência de settings, criação de logs, etc.).
-- `manifest.json` — metadados do plugin (id, versão, author, etc.).
-- `styles.css` — estilos mínimos para a apresentação do bloco `timer`.
+- `main.js` — generated/bundled file with the plugin logic (timer code block processor, settings persistence, log creation, etc.).
+- `manifest.json` — plugin metadata (id, version, author, etc.).
+- `styles.css` — minimal styles for the timer block presentation.
 
-Funcionalidades
----------------
+Features
+--------
 
-- Adiciona um processador de bloco de código para ```` ```timer ````
-- Gera um UID para cada bloco `timer` e mantém o estado (running/stopped) em memória durante a sessão.
-- Suporte a configuração via bloco `timer` (ex.: customizar textos dos botões, controlar se milissegundos são exibidos, etc.) e via aba de configurações do plugin.
-- Se ativado, cria uma tabela de log logo abaixo do bloco timer com colunas: Start | Stop | Duration | Comments e atualiza o Total Time.
+- Adds a code block processor for ```` ```timer ````
+- Generates a UID for each `timer` block and maintains state (running/stopped) in memory during the session.
+- Supports configuration via the `timer` block (e.g., customize button texts, control whether milliseconds are displayed, etc.) and via the plugin settings tab.
+- When enabled, creates a log table below the timer block with columns: Start | Stop | Duration | Comments and updates the Total Time.
 
-Como usar
----------
+How to Use
+----------
 
-1. Instale o plugin (ver instruções abaixo).
-2. No seu arquivo Markdown, adicione um bloco de código com a linguagem `timer`:
+1. Install the plugin (see instructions below).
+2. In your Markdown file, add a code block with the `timer` language:
 
 ```
 ```timer
@@ -41,35 +41,35 @@ _timerUID:optional-id
 ms: true
 ```
 
-3. Ao renderizar a nota, o bloco exibirá o display do tempo e botões Start/Stop/Reset conforme configuração.
-4. Se `autoLog` estiver ativado (nas configurações do plugin), ao parar o timer o tempo será adicionado na tabela de log.
+3. When rendering the note, the block will display the time and Start/Stop/Reset buttons according to configuration.
+4. If `autoLog` is enabled (in plugin settings), when stopping the timer the time will be added to the log table.
 
-Configurações suportadas (visíveis no código gerado / via plugin settings):
+Supported settings (visible in generated code / via plugin settings):
 
-- autoLog: adiciona automaticamente o log na tabela
-- dateFormat: formato das datas no log (ex.: YYYY-MM-DD)
-- logDateLinking: `none` | `tag` | `link` — como o plugin formata as datas no log
-- msDisplay: mostrar milissegundos
+- autoLog: automatically adds log to the table
+- dateFormat: date format in the log (e.g., YYYY-MM-DD)
+- logDateLinking: `none` | `tag` | `link` — how the plugin formats dates in the log
+- msDisplay: show milliseconds
 - startButtonText / stopButtonText / resetButtonText
 - showResetButton / continueRunningOnReset
 
-Instalação local (manualmente)
------------------------------
+Local Installation (Manual)
+---------------------------
 
-1. Copie a pasta deste projeto para o diretório de plugins do Obsidian (ex.: `.obsidian/plugins/obsidian-note-timer`).
-2. Reinicie o Obsidian (ou recarregue plugins) e ative "Note Timer" nas configurações de comunidade.
+1. Copy this project folder to the Obsidian plugins directory (e.g., `.obsidian/plugins/obsidian-note-timer`).
+2. Restart Obsidian (or reload plugins) and enable "Note Timer" in community settings.
 
-Observações sobre license / autoria
-----------------------------------
+License / Attribution Notes
+---------------------------
 
-Este repositório é uma adaptação local do trabalho de davidvdev. O código em `main.js` é a versão bundle gerada (o `source` original está no projeto upstream). Preserve a atribuição ao autor original e verifique a licença do upstream antes de redistribuir.
+This repository is a local adaptation of davidvdev's work. The code in `main.js` is the generated bundle version (the original `source` is in the upstream project). Please preserve attribution to the original author and check the upstream license before redistributing.
 
-Instalando o GitHub CLI (`gh`) sem sudo (ambiente Flatpak / sem permissões root)
---------------------------------------------------------------------------------
+Installing GitHub CLI (`gh`) without sudo (Flatpak environment / no root permissions)
+-------------------------------------------------------------------------------------
 
-Os passos abaixo baixam o binário do `gh` para Linux (amd64) e o colocam em `~/.local/bin` — não é necessário sudo.
+The steps below download the `gh` binary for Linux (amd64) and place it in `~/.local/bin` — no sudo required.
 
-Cole e execute no seu terminal (seu shell é `sh`):
+Copy and run in your terminal (your shell is `sh`):
 
 ```sh
 mkdir -p "$HOME/.local/bin"
@@ -83,31 +83,31 @@ chmod +x "$HOME/.local/bin/gh"
 "$HOME/.local/bin/gh" --version
 ```
 
-Autenticação e criação do repositório (você autoriza via navegador)
--------------------------------------------------------------------
+Authentication and Repository Creation (authorize via browser)
+--------------------------------------------------------------
 
-Após instalar `gh`, execute dentro da pasta do projeto:
+After installing `gh`, run within the project folder:
 
 ```sh
-cd /caminho/para/obsidian-note-timer
+cd /path/to/obsidian-note-timer
 gh auth login --web
-# siga as instruções no navegador para autorizar
-gh repo create NOME_DO_REPO --public --source=. --remote=origin --confirm --push
+# follow browser instructions to authorize
+gh repo create REPO_NAME --public --source=. --remote=origin --confirm --push
 ```
 
-Observação: `gh repo create` usará sua conta autenticada no GitHub e criará o repositório público. Substitua `NOME_DO_REPO` pelo nome desejado (por exemplo `obsidian-note-timer`).
+Note: `gh repo create` will use your authenticated GitHub account and create a public repository. Replace `REPO_NAME` with your desired name (e.g., `obsidian-note-timer`).
 
-O que eu fiz aqui
------------------
+What Was Done Here
+------------------
 
-- Li os arquivos do projeto e resumi o funcionamento.
-- Adicionei este `README.md` com instruções de uso, instalação e como instalar o `gh` sem sudo.
+- Read the project files and summarized functionality.
+- Added this `README.md` with usage instructions, installation, and how to install `gh` without sudo.
 
-Próximos passos sugeridos
--------------------------
+Suggested Next Steps
+--------------------
 
-- (Opcional) Incluir o código-fonte não-bundle (TypeScript/JS original) para facilitar manutenção.
-- Adicionar LICENSE/NOTICE se quiser redistribuir (verificar a licença do upstream).
-- Testar o fluxo `gh auth` e `gh repo create` no ambiente do usuário para confirmar permissões.
+- (Optional) Include the non-bundled source code (original TypeScript/JS) to facilitate maintenance.
+- Add LICENSE/NOTICE if you want to redistribute (check the upstream license).
+- Test the `gh auth` and `gh repo create` workflow in the user environment to confirm permissions.
 
--- Fim
+-- End
