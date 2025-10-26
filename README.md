@@ -10,9 +10,8 @@ Original source: https://github.com/davidvdev/obsidian-note-timer
 Overview
 --------
 
-This plugin adds an embedded timer to Markdown code blocks using the `timer` language.
-It displays buttons to start, stop, and (optionally) reset the timer, and can maintain a log
-in table format within the Markdown file itself.
+This plugin adds an embedded timer to Markdown code blocks using the timer language.
+It displays buttons to start, stop, and (optionally) reset the timer, with the log feature removed.
 
 Main Files
 ----------
@@ -26,8 +25,6 @@ Features
 
 - Adds a code block processor for ```` ```timer ````
 - Generates a UID for each `timer` block and maintains state (running/stopped) in memory during the session.
-- Supports configuration via the `timer` block (e.g., customize button texts, control whether milliseconds are displayed, etc.) and via the plugin settings tab.
-- When enabled, creates a log table below the timer block with columns: Start | Stop | Duration | Comments and updates the Total Time.
 
 How to Use
 ----------
@@ -42,16 +39,6 @@ ms: true
 ```
 
 3. When rendering the note, the block will display the time and Start/Stop/Reset buttons according to configuration.
-4. If `autoLog` is enabled (in plugin settings), when stopping the timer the time will be added to the log table.
-
-Supported settings (visible in generated code / via plugin settings):
-
-- autoLog: automatically adds log to the table
-- dateFormat: date format in the log (e.g., YYYY-MM-DD)
-- logDateLinking: `none` | `tag` | `link` — how the plugin formats dates in the log
-- msDisplay: show milliseconds
-- startButtonText / stopButtonText / resetButtonText
-- showResetButton / continueRunningOnReset
 
 Local Installation (Manual)
 ---------------------------
