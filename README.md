@@ -13,6 +13,10 @@ Overview
 This plugin adds an embedded timer to Markdown code blocks using the timer language.
 It displays buttons to start, stop, and (optionally) reset the timer, with the log feature removed.
 
+**Why?**
+
+Because even after setting `"log: false"` in my Obsidian, it was still saving and creating logs when stopping the timer — so I made this version without that feature.
+
 Main Files
 ----------
 
